@@ -1,0 +1,23 @@
+<div class="card m-5 mt-3">
+    @if (token == '' || token == null){
+    <div class="card-header bg-primary">Sign In</div>
+    <div class="card-body p-5">
+        <div>
+            <div>username</div>
+            <input class="from-control" [(ngModel)]="username" />
+        </div>
+        <div class="mt-3">
+            <div>Password</div>
+            <input type="password" class="from-control" [(ngModel)]="password"/>
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-primary" (click)="signIn()">    
+                <i class="fa fa-check me-2"></i>
+                SignIn button
+            </button>
+        </div>
+    </div>
+} @else {
+    <div class="text-center h2">welcome to website</div>
+}
+</div>
