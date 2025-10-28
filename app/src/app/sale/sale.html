@@ -37,13 +37,14 @@
             }
           </div>
         </div>
+
         <div class="col-3">
           <div class="alert bg-dark text-success text-end h3">{{amount.toLocaleString('th-TH')}}</div>
           @for(item of saleTemps; track $index){
             
             <div class="card">
                 <div class="card-body">
-                <div>{{item.food.name}}</div>
+                <div>{{item.Food.name}}</div>
                 <div>{{item.price}} × {{item.qty}} = {{item.price * item.qty}}</div>
 
                 <div class="mt-2">

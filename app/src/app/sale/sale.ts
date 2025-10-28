@@ -96,20 +96,21 @@ export class Sale {
 
   computeAmount(){
     this.amount = 0;
-    
-    for(let i=0 ; i< this.saleTemps; i++){
+    console.log("check saleTemps : ",this.saleTemps);
+   
+    for(let i = 0 ; i < this.saleTemps.length; i++){
       const item = this.saleTemps[i];
       const totalPerRow = item.qty * item.price;
+      if(item.SaleTempDetails && item.SaleTempDetails.length > 0){
+        for (let j = 0; j < item.SaleTempDetails.length;  j++){
+          this.amount += item.SaleTempDetails[j].addedMoney;
 
-      for (let j = 0; j < item.SaleTempDetails.length;  j++){
-        this.amount += item.SaleTempDetails[j].addedMoney;
+        }
       }
       this.amount += totalPerRow;
+      
     }
-    
     console.log("at computAmount : ",this.amount)
-
-
   }
 
   async removeItem(item:any){
@@ -169,6 +170,7 @@ export class Sale {
     if(userId !== null){
       this.userId = parseInt(userId) 
       this.fetchDataScaleTemp();
+     
     }
 
    
