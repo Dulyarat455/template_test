@@ -18,6 +18,7 @@ export class Sale {
   foods:any = [];
   saleTemps:any = [];
   foodSizes: any =[];
+  tastes: any =[];
   apiPath: string = '';
   tableNo: number = 1;
   userId: number = 0;
@@ -59,6 +60,7 @@ export class Sale {
       this.http.get(config.apiServer + 'api/foodSize/filter/' + foodTypeId)
       .subscribe((res:any)=>{
         this.foodSizes = res.results;
+        console.log("foodsize = ",this.foodSizes);
       })
 
 
@@ -248,6 +250,23 @@ export class Sale {
       })
     }
   }
+
+  fetchDataTaste(foodTypeId: number){
+    try{
+      this.http.get(config.apiServer + 'api/taste/listByFoodTypeId/' + foodTypeId)
+      .subscribe((res:any)=>{
+        this.tastes = res.results;
+      })
+    }catch{
+      Swal.fire({
+        title: 'error',
+        text: e.message,
+        icon: 'error'
+      })
+    }
+  }
+
+
 
   async clearAllRow() {
     const button = await Swal.fire({

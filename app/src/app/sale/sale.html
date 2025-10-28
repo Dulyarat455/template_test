@@ -56,24 +56,24 @@
                 </div>
                 </div>
                 <div class="card-footer">
-                    <div class="row">
-                        <div class="col-4">
+                    <div class="row g-1">
+                        <div class="col-6">
                             <button class="btn btn-danger btn-block" (click)="removeItem(item)">
-                                <i class="fa fa-times me-2"></i>
+                                <i class="fa fa-times me-2"></i>ลบออก
                             </button>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <!-- ****************************************************************************** -->
                             <!-- this must replace by open modal fuction -->
                             <button class="btn btn-success btn-block" (click)="chooseFoodSize(item)">
-                                <i class="fa fa-list"></i>
+                                <i class="fa fa-cog me-2"></i>กำหนด
                             </button>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <button class="btn btn-info btn-block">
                                 <i class="fa fa-file-alt"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                     
                 </div>
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-<app-my-modal modalId="modalFoodSize" title="เลือกขนาด" modalSize="modal-lg">
+<app-my-modal modalId="modalFoodSize" title="เลือกขนาด" modalSize="modal-lg" (closeRequest)="myModal.close()">
     <div class="h4">{{ foodName }}</div>
     <table class="mt-3 table table-bordered table-striped">
       <thead>
